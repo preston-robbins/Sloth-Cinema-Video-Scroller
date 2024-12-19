@@ -4,7 +4,7 @@
 console.clear()
 
 gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
-  const speed = 2 // (in pixels per second)
+  const speed = 1 // (in pixels per second)
 
   const links = line.querySelectorAll("a"),
     tl = horizontalLoop(links, { 
