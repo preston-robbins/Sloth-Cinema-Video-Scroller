@@ -2,7 +2,7 @@
 
 
 console.clear()
-
+console.lgo("video should play on hover")
 gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
   const speed = 1 // (in pixels per second)
 
