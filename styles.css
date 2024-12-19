@@ -1,0 +1,33 @@
+.services-ticker-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: flex-start;
+    background-color: black;
+  }
+  .stb_line_single {
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    will-change: transform;
+    display: flex;
+    flex-direction: row;
+  }
+  .stb-item {
+    color: white;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    margin-right: 40px; /* Adjust this value to control spacing between items */
+  }  .stb-item:hover {
+    color: #c02534;
+  }
+  
+  img {
+    height: 200px
+  }
+  
