@@ -1,28 +1,30 @@
 
 
 
-console.clear()
-console.log("video should play on hover")
-gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
-  const speed = 1 // (in pixels per second)
+window.addEventListener('load', () => {
+  console.clear()
+  
+  gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
+      const speed = 1
+      const links = line.querySelectorAll("a"),
+          tl = horizontalLoop(links, {
+              speed: speed,
+              reversed: true,
+              repeat: -1,
+              paddingRight: 50
+          })
 
-  const links = line.querySelectorAll("a"),
-    tl = horizontalLoop(links, { 
-      speed: speed, 
-      reversed: true, 
-      repeat: -1,
-      paddingRight: 50 // Add this line to match your spacing
-    })
-
-  links.forEach((link) => {
-    link.addEventListener("mouseenter", () =>
-      gsap.to(tl, { timeScale: 0, overwrite: true }),
-    )
-    link.addEventListener("mouseleave", () =>
-      gsap.to(tl, { timeScale: -1, overwrite: true }),
-    )
+      links.forEach((link) => {
+          link.addEventListener("mouseenter", () =>
+              gsap.to(tl, { timeScale: 0, overwrite: true }),
+          )
+          link.addEventListener("mouseleave", () =>
+              gsap.to(tl, { timeScale: -1, overwrite: true }),
+          )
+      })
   })
-})
+});
+
 
 function horizontalLoop(items, config) {
   items = gsap.utils.toArray(items)
