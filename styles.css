@@ -31,3 +31,20 @@
     height: 200px
   }
   
+  .media-container {
+      position: relative;
+      width: 300px; /* adjust as needed */
+  }
+  
+  .thumbnail, .hover-video {
+      width: 100%;
+      height: auto;
+  }
+  
+  .hover-video {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  

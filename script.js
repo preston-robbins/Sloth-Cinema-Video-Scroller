@@ -125,3 +125,29 @@ function horizontalLoop(items, config) {
   }
   return tl
 }
+
+// Add this after your existing GSAP code
+document.querySelectorAll('.stb-item').forEach(item => {
+    const video = item.querySelector('.hover-video');
+    const thumbnail = item.querySelector('.thumbnail');
+    
+    item.addEventListener('mouseenter', () => {
+        video.style.display = 'block';
+        thumbnail.style.display = 'none';
+        video.play();
+    });
+    
+    item.addEventListener('mouseleave', () => {
+        video.style.display = 'none';
+        thumbnail.style.display = 'block';
+        video.pause();
+        video.currentTime = 0;
+    });
+    
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector(item.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

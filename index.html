@@ -7,10 +7,15 @@
 <body>
     <div class="services-ticker-block">
         <div class="stb_line_single">
-          <a href="#" class="stb-item">
+          <a href="#scroll-target" class="stb-item">
             <span>
               <p>video 1</p>
-              <img src="https://www.techsmith.com/blog/wp-content/uploads/2021/02/TSC-thumbnail-example-1024x576.png">
+              <div class="media-container">
+                <img src="https://www.techsmith.com/blog/wp-content/uploads/2021/02/TSC-thumbnail-example-1024x576.png" class="thumbnail">
+                <video class="hover-video" muted>
+                  <source src="your-video-source.mp4" type="video/mp4">
+                </video>
+              </div>
             </span>
           </a>
           <a href="#" class="stb-item">
@@ -62,7 +67,13 @@
             </span>
           </a>
         </div>
-      </div>
+    </div>
+
+    <div id="scroll-target" style="height: 100vh; margin-top: 100vh;">
+        <!-- This is where users will scroll to when clicking a video -->
+        <!-- Add whatever content you want to show here -->
+    </div>
       <script type="module" src="script.js"></script>
     </body>
 </html></html>
+
