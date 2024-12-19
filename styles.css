@@ -30,21 +30,57 @@
   img {
     height: 200px
   }
-  
-  .media-container {
-      position: relative;
-      width: 300px; /* adjust as needed */
-  }
-  
-  .thumbnail, .hover-video {
-      width: 100%;
-      height: auto;
-  }
-  
-  .hover-video {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-  }
-  
+.stb-item p {
+    font-size: 48px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+.media-container {
+    position: relative;
+    width: 600px;
+    height: 340px;
+}
+
+.thumbnail, .hover-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.stb-item span {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.thumbnail {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+.hover-video {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.stb-item p {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 3;
+}.media-container:hover .hover-video {
+    opacity: 1;
+}
+
+.media-container:hover .thumbnail {
+    opacity: 0;
+}

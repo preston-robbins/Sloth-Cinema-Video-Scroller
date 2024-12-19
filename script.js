@@ -2,7 +2,7 @@
 
 
 console.clear()
-console.lgo("video should play on hover")
+console.log("video should play on hover")
 gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
   const speed = 1 // (in pixels per second)
 
@@ -126,24 +126,39 @@ function horizontalLoop(items, config) {
   return tl
 }
 
-// Add this after your existing GSAP code
+let players = [];
+
+function onYouTubeIframeAPIReady() {
+    document.querySelectorAll('.youtube-container').forEach((container, index) => {
+        players[index] = new YT.Player(container, {
+            videoId: container.dataset.videoId,
+            playerVars: {
+                autoplay: 0,
+                controls: 0,
+                mute: 1
+            }
+        });
+    });
+}
+
+document.querySelectorAll('.media-container').forEach((container, index) => {
+    const thumbnail = container.querySelector('img');
+    
+    container.addEventListener('mouseenter', () => {
+        if (players[index]) {
+            players[index].playVideo();
+            thumbnail.style.opacity = '0';
+        }
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        if (players[index]) {
+            players[index].stopVideo();
+            thumbnail.style.opacity = '1';
+        }
+    });
+});
 document.querySelectorAll('.stb-item').forEach(item => {
-    const video = item.querySelector('.hover-video');
-    const thumbnail = item.querySelector('.thumbnail');
-    
-    item.addEventListener('mouseenter', () => {
-        video.style.display = 'block';
-        thumbnail.style.display = 'none';
-        video.play();
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        video.style.display = 'none';
-        thumbnail.style.display = 'block';
-        video.pause();
-        video.currentTime = 0;
-    });
-    
     item.addEventListener('click', (e) => {
         e.preventDefault();
         document.querySelector(item.getAttribute('href')).scrollIntoView({
