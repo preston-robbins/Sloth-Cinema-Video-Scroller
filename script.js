@@ -160,11 +160,3 @@ document.querySelectorAll('.media-container').forEach((container, index) => {
         }
     });
 });
-document.querySelectorAll('.stb-item').forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector(item.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
