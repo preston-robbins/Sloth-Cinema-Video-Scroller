@@ -7,9 +7,9 @@
   body {
     display: flex;
     align-items: flex-start;
-    background-color: black;
-  }
-  .stb_line_single {
+    background: transparent;
+}  
+.stb_line_single {
     position: relative;
     white-space: nowrap;
     padding: 0;
