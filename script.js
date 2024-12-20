@@ -5,14 +5,14 @@ window.addEventListener('load', () => {
   console.clear()
   
     gsap.utils.toArray(".stb_line_single").forEach((line, i) => {
-    const speed = 1.5
-    const links = line.querySelectorAll("a"),
-      tl = horizontalLoop(links, {
-        speed: speed,
-        reversed: true,
-        repeat: -1,
-        paddingRight: 80 // Doubled from 50 to match the new spacing
-      })
+      const speed = window.innerWidth <= 768 ? 0.5 : 1
+      const links = line.querySelectorAll("a"),
+        tl = horizontalLoop(links, {
+          speed: speed,
+          reversed: true,
+          repeat: -1,
+          paddingRight: window.innerWidth <= 768 ? 30 : 80 // Refined spacing values
+        })
 
       links.forEach((link) => {
           link.addEventListener("mouseenter", () =>
