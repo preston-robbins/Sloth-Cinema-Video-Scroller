@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
           speed: speed,
           reversed: true,
           repeat: -1,
-          paddingRight: window.innerWidth <= 768 ? 30 : 80 // Refined spacing values
+          paddingRight: 80 // Matching the margin-right value
         })
 
       links.forEach((link) => {

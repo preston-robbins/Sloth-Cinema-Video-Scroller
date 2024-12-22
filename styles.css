@@ -56,20 +56,30 @@
     flex-direction: column;
     gap: 20px;
 }
+
+.stb-item {
+    margin-right: 80px; /* Fixed spacing for all screen sizes */
+}
+
+.media-container {
+    position: relative;
+    width: min(600px, 90vw);
+    height: min(340px, 50.8vw);
+}
+
 .stb-item p {
-    font-size: clamp(32px, 6vw, 48px);
+    font-size: 48px;
     font-weight: 700;
     margin: 5px 0;
     text-transform: uppercase;
     white-space: nowrap;
 }
-/* Adjust spacing for mobile */
+
 @media (max-width: 768px) {
-    .stb-item {
-        margin-right: 40px;
+    .stb-item p {
+        font-size: 16px;
     }
 }
-
 .thumbnail {
     display: block;
     opacity: 1;
